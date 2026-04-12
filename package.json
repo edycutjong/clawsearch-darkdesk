@@ -1,0 +1,47 @@
+{
+  "name": "clawsearchdarkdesk",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "typecheck": "tsc --noEmit",
+    "test": "jest",
+    "test:coverage": "jest --coverage",
+    "ci": "npm run lint && npm run typecheck && npm run test:coverage",
+    "demo:record": "npx ts-node scripts/record-demo.ts",
+    "demo:broll": "npx ts-node scripts/record-broll.ts",
+    "screenshots": "npx ts-node scripts/take-screenshots.ts"
+  },
+  "dependencies": {
+    "@icons-pack/react-simple-icons": "^13.11.1",
+    "@supabase/supabase-js": "^2.103.0",
+    "lucide-react": "^1.8.0",
+    "next": "16.2.3",
+    "react": "19.2.4",
+    "react-dom": "19.2.4"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.59.1",
+    "@tailwindcss/postcss": "^4",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.2",
+    "@types/jest": "^30.0.0",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.2.3",
+    "jest": "^30.3.0",
+    "jest-environment-jsdom": "^30.3.0",
+    "node-mocks-http": "^1.17.2",
+    "playwright": "^1.59.1",
+    "tailwindcss": "^4",
+    "ts-jest": "^29.4.9",
+    "ts-node": "^10.9.2",
+    "typescript": "^5"
+  }
+}
