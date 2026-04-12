@@ -1,0 +1,20 @@
+schema_version: "1.0"
+
+name: "solana-web3-to-kit"
+version: "0.1.0"
+description: "Transform solana/web3.js calls to solana-kit"
+author: "Edy Cutjong <edycutjong@example.com>"
+license: "MIT"
+workflow: "workflow.yaml"
+repository: "https://github.com/edycutjong/clawsearchdarkdesk"
+
+targets:
+  languages: ["typescript"]
+
+keywords: ["transformation", "migration"]
+
+registry:
+  access: "public"
+  visibility: "public"
+
+capabilities: []
