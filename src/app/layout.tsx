@@ -1,34 +1,34 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter, JetBrains_Mono } from "next/font/google";
+import { Providers } from "@/components/Providers";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const jetbrainsMono = JetBrains_Mono({
+  variable: "--font-jetbrains-mono",
   subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
-  title: "ClawSearchDarkDesk — Zero-FP Solana Migration Engine",
+  title: "ClawSearch DarkDesk — OTC Real World Assets",
   description:
-    "Autonomous AST codemods verified by an adversarial AI-compiler loop. Open live PRs with zero false positives.",
+    "Institutional dark pool for tokenized Real World Assets, featuring iExec Confidential Tokens and AI-brokered negotiations.",
   metadataBase: new URL("https://clawsearchdarkdesk.vercel.app"),
   openGraph: {
-    title: "ClawSearchDarkDesk — Zero-FP Solana Migration Engine",
+    title: "ClawSearch DarkDesk — OTC Real World Assets",
     description:
-      "Compiler-in-the-loop AI codemods that migrate @solana/web3.js to @solana/kit with zero false positives.",
+      "Institutional dark pool for RWAs with confidential settlement.",
     images: [{ url: "/og-image.png", width: 1200, height: 630 }],
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "ClawSearchDarkDesk — Zero-FP Solana Migration Engine",
-    description:
-      "Compiler-in-the-loop AI codemods that migrate @solana/web3.js to @solana/kit with zero false positives.",
+    title: "ClawSearch DarkDesk",
+    description: "Confidential OTC Dark Pool for RWAs.",
     images: ["/og-image.png"],
   },
   icons: {
@@ -44,11 +44,13 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased dark`}
+      className={`${inter.variable} ${jetbrainsMono.variable} h-full antialiased dark`}
       suppressHydrationWarning
     >
-      <body className="min-h-full flex flex-col bg-background text-foreground noise-overlay">
-        {children}
+      <body className="min-h-full flex flex-col bg-slate-950 text-slate-200 noise-overlay font-sans selection:bg-cyan-500/30">
+        <Providers>
+          {children}
+        </Providers>
       </body>
     </html>
   );
