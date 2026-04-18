@@ -49,6 +49,7 @@ describe('AIChat', () => {
   });
 
   it('handles API error', async () => {
+    const spy = jest.spyOn(console, 'error').mockImplementation(() => {});
     (global.fetch as jest.Mock).mockRejectedValue(new Error('API Error'));
 
     render(<AIChat />);
@@ -62,5 +63,50 @@ describe('AIChat', () => {
     await waitFor(() => {
       expect(screen.getByText(/\[SYSTEM ERROR\]/)).toBeInTheDocument();
     });
+    spy.mockRestore();
+  });
+
+  it('handles empty input and typing state', () => {
+    render(<AIChat />);
+    const form = screen.getByRole('button').closest('form');
+    // submit with empty input
+    if (form) fireEvent.submit(form);
+    expect(global.fetch).not.toHaveBeenCalled();
+    // button shouldn't allow if disabled, but submit can bypass button sometimes, so just tests the form
+  });
+
+  it('handles fetch !ok response', async () => {
+    const spy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    (global.fetch as jest.Mock).mockResolvedValue({
+      ok: false
+    });
+
+    render(<AIChat />);
+    const input = screen.getByPlaceholderText(/Sell 100,000 cUSDC/);
+    fireEvent.change(input, { target: { value: 'Testing not ok' } });
+    fireEvent.click(screen.getByRole('button'));
+
+    await waitFor(() => {
+      expect(screen.getByText(/\[SYSTEM ERROR\]/)).toBeInTheDocument();
+    });
+    spy.mockRestore();
+  });
+
+  it('handles fetch missing body response', async () => {
+    const spy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    (global.fetch as jest.Mock).mockResolvedValue({
+      ok: true,
+      body: null
+    });
+
+    render(<AIChat />);
+    const input = screen.getByPlaceholderText(/Sell 100,000 cUSDC/);
+    fireEvent.change(input, { target: { value: 'Testing no body' } });
+    fireEvent.click(screen.getByRole('button'));
+
+    await waitFor(() => {
+      expect(screen.getByText(/\[SYSTEM ERROR\]/)).toBeInTheDocument();
+    });
+    spy.mockRestore();
   });
 });

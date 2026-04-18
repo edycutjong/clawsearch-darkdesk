@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen, fireEvent, act } from '@testing-library/react';
 import { Header } from '../Header';
 
 // Mock next/navigation
@@ -15,8 +15,22 @@ describe('Header', () => {
     expect(screen.getByText('Docs')).toBeInTheDocument();
   });
 
+
+
   it('renders source link', () => {
     render(<Header />);
     expect(screen.getByText('Source')).toBeInTheDocument();
+  });
+
+  it('handles scroll event to update class', () => {
+    const { container } = render(<Header />);
+    expect(container.firstChild).toHaveClass('header-top');
+    
+    act(() => {
+      window.scrollY = 50;
+      window.dispatchEvent(new Event('scroll'));
+    });
+    
+    expect(container.firstChild).toHaveClass('header-scrolled');
   });
 });

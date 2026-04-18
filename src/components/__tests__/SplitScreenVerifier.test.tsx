@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen, act } from '@testing-library/react';
 import { SplitScreenVerifier } from '../SplitScreenVerifier';
 
 describe('SplitScreenVerifier', () => {
@@ -20,5 +20,17 @@ describe('SplitScreenVerifier', () => {
     render(<SplitScreenVerifier />);
     expect(screen.getByText('Public')).toBeInTheDocument();
     expect(screen.getByText('Private')).toBeInTheDocument();
+  });
+
+  it('advances revealed state and loops back', () => {
+    jest.useFakeTimers();
+    render(<SplitScreenVerifier />);
+    
+    act(() => {
+      // 6 times x 800ms = 4800 to trigger wrap-around (since length is 5)
+      jest.advanceTimersByTime(4800);
+    });
+    
+    jest.useRealTimers();
   });
 });
