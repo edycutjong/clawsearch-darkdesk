@@ -27,12 +27,11 @@ function useCountUp(target: number, duration = 2000, delay = 0) {
 function SpotlightCard({ children, className = "" }: { children: React.ReactNode; className?: string }) {
   const ref = useRef<HTMLDivElement>(null);
   const handleMouseMove = (e: React.MouseEvent) => {
-    const el = ref.current;
-    /* istanbul ignore if */
-    if (!el) return;
-    const rect = el.getBoundingClientRect();
-    el.style.setProperty("--mouse-x", `${e.clientX - rect.left}px`);
-    el.style.setProperty("--mouse-y", `${e.clientY - rect.top}px`);
+    /* istanbul ignore next */
+    if (!ref.current) return;
+    const rect = ref.current.getBoundingClientRect();
+    ref.current.style.setProperty("--mouse-x", `${e.clientX - rect.left}px`);
+    ref.current.style.setProperty("--mouse-y", `${e.clientY - rect.top}px`);
   };
   return (
     <div ref={ref} onMouseMove={handleMouseMove} className={`spotlight-card ${className}`}>
