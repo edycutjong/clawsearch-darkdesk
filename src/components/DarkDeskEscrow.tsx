@@ -54,8 +54,8 @@ export function DarkDeskEscrow() {
           </div>
 
           <div className="space-y-3">
-            <div className={`p-4 rounded-lg flex items-center gap-3 transition-colors ${escrowStatus !== 'idle' ? 'bg-slate-800 text-slate-200' : 'bg-slate-900/50 text-slate-600'}`}>
-              <CheckCircle2 className={`h-5 w-5 ${escrowStatus !== 'idle' ? 'text-emerald-400' : 'text-slate-700'}`} />
+            <div className="p-4 rounded-lg flex items-center gap-3 transition-colors bg-slate-800 text-slate-200">
+              <CheckCircle2 className="h-5 w-5 text-emerald-400" />
               <span className="font-mono text-sm">Contract Deployed via iExec</span>
             </div>
             <div className={`p-4 rounded-lg flex items-center gap-3 transition-colors ${(escrowStatus === 'funded' || escrowStatus === 'executed') ? 'bg-slate-800 text-slate-200' : 'bg-slate-900/50 text-slate-600'}`}>

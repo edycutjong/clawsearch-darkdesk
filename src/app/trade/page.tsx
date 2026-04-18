@@ -2,6 +2,7 @@ import { Header } from '@/components/Header';
 import { Shield } from 'lucide-react';
 import { AIChat } from '@/components/AIChat';
 import { DarkDeskEscrow } from '@/components/DarkDeskEscrow';
+import { PriceOracle } from '@/components/PriceOracle';
 import { SplitScreenVerifier } from '@/components/SplitScreenVerifier';
 
 export default function TradingDeskPage() {
@@ -46,8 +47,8 @@ export default function TradingDeskPage() {
               <div className="border-b border-slate-800 bg-slate-900 px-4 py-3">
                 <h2 className="font-mono text-sm font-semibold text-slate-200">Live RWA Pricing</h2>
               </div>
-              <div className="flex-1 p-4 flex items-center justify-center text-slate-500">
-                [PriceOracle Placeholder]
+              <div className="flex-1 overflow-hidden">
+                <PriceOracle />
               </div>
             </div>
 

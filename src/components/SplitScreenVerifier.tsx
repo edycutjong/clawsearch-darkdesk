@@ -32,7 +32,7 @@ export function SplitScreenVerifier() {
             <p><span className="text-emerald-800">Tx:</span> 0xabc...123</p>
             <p><span className="text-emerald-800">Swap:</span> 100,000 cUSDC</p>
             <p><span className="text-emerald-800">For:</span> ~100k cT-BILL</p>
-            <p><span className="text-emerald-800">Condition:</span> Yield >= 4.12%</p>
+            <p><span className="text-emerald-800">Condition:</span> Yield &gt;= 4.12%</p>
             <p><span className="text-emerald-800">Status:</span> Atomic Execution</p>
           </div>
         </div>

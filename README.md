@@ -1,185 +1,183 @@
+# 🛡️ ClawSearch DarkDesk
 
-<p align="center">
-  <a href="https://clawsearchdarkdesk.edycu.dev/">
-    <img src="docs/screenshots/ClawSearchDarkDesk_Thumbnail_16_9.png" alt="ClawSearchDarkDesk Project Banner" width="800" />
-  </a>
-</p>
+> AI-Brokered OTC Dark Pool for Confidential RWA Trading
 
-<h1 align="center">ClawSearchDarkDesk</h1>
-<p align="center"><strong>Zero-FP Solana Migrations</strong></p>
-
-<p align="center">
-  <img src="https://img.shields.io/badge/Next.js-16.2-black?logo=next.js" alt="Next.js" />
-  <img src="https://img.shields.io/badge/React-19.2-61dafb?logo=react" alt="React" />
-  <img src="https://img.shields.io/badge/Supabase-Backend-3FCF8E?logo=supabase" alt="Supabase" />
-  <img src="https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript" alt="TypeScript" />
-</p>
-<p align="center">
-  <img src="https://img.shields.io/badge/CI-passing-brightgreen" alt="CI" />
-  <img src="https://img.shields.io/badge/coverage-100%25-brightgreen" alt="Coverage" />
-</p>
-<p align="center">
-  <a href="https://clawsearchdarkdesk.edycu.dev/"><img src="https://img.shields.io/badge/Live_Demo-▶_clawsearchdarkdesk.edycu.dev-00ffaa?logo=vercel" alt="Live Demo" /></a>
-  <a href="https://youtu.be/ApeRnzYuN7U"><img src="https://img.shields.io/badge/Demo_Video-▶_Watch_Now-red?logo=youtube" alt="Demo Video" /></a>
-</p>
-
-> Autonomous AST codemods verified by an adversarial AI-compiler loop. Open live PRs on real repos with **zero false positives**.
-
-ClawSearchDarkDesk is an autonomous migration engine built for the **[DoraHacks Boring AI Hackathon 2026](https://dorahacks.io/hackathon/boring-ai)**. It upgrades legacy Solana codebases from `@solana/web3.js` to the modern `@solana/kit` standard — combining deterministic AST transforms with a compiler-in-the-loop AI for edge cases that mechanical regex can't handle.
-
-<table>
-  <tr>
-    <td width="50%" align="center">
-      <img src="docs/screenshots/dashboard.png" alt="ClawSearchDarkDesk Dashboard" />
-      <br/>
-      <em>Dashboard — Real-time sweep monitoring</em>
-    </td>
-    <td width="50%" align="center">
-      <img src="docs/screenshots/sweep-detail.png" alt="ClawSearchDarkDesk Pipeline Detail" />
-      <br/>
-      <em>Sweep Detail — 4-stage pipeline visualization</em>
-    </td>
-  </tr>
-</table>
+[![Built on iExec Nox](https://img.shields.io/badge/iExec-Nox_Protocol-06b6d4.svg)](https://nox.iex.ec/)
+[![ChainGPT](https://img.shields.io/badge/AI-ChainGPT-a855f7.svg)](https://chaingpt.org/)
+[![Arbitrum Sepolia](https://img.shields.io/badge/Chain-Arbitrum_Sepolia-2d374b.svg)](https://sepolia.arbiscan.io/)
+[![Next.js 16](https://img.shields.io/badge/Next.js-16-black?logo=next.js)](https://nextjs.org/)
+[![React 19](https://img.shields.io/badge/React-19-61dafb?logo=react)](https://react.dev/)
 
 ---
 
-## 🎯 Problem
+## 🎯 The Problem
 
-The #1 problem with AI code generation is **false positives**: hallucinations that introduce subtle syntax errors, forcing developers to manually debug the "fixes." This defeats the purpose of automation.
+When institutional players trade large blocks of tokenized Real World Assets (RWAs) — such as $5M of tokenized T-Bills — public blockchains broadcast every detail. MEV bots front-run, copy-traders pile on, and slippage costs 2–5% of trade value. In traditional finance, **dark pools** solve this. On-chain, there is no privacy layer for confidential OTC settlement.
 
-Solana's migration from `@solana/web3.js` to `@solana/kit` affects thousands of open-source repositories. Manual migration takes hours per repo. AI-only migration produces broken code. Neither approach works at scale.
+**Result**: The $15T RWA tokenization wave stays stuck because institutions can't trade without broadcasting their intent.
 
-## 💡 Solution
+## 💡 The Solution
 
-**ClawSearchDarkDesk** takes a radically different approach: **compiler-verified AI migration.**
+**ClawSearch DarkDesk** is an AI-brokered OTC dark pool built on iExec Confidential Tokens and the Nox Protocol:
 
-1. **AST Codemods** — Deterministic `ast-grep` transforms via the Codemod toolkit handle 80% of migration patterns (imports, types, method calls)
-2. **Compiler-in-the-Loop** — `tsc` errors from the remaining 20% are fed to Claude Sonnet, which patches edge cases iteratively until the build is **mathematically proven green**
-3. **Auto-PR** — The verified branch is pushed and a Pull Request is opened automatically
+1. **Off-Chain Negotiation** — An AI broker (powered by ChainGPT's Web3 LLM) negotiates trade terms using natural language, pulling **live market data** from Alpaca Markets API — zero mocked data.
+2. **Confidential Wrapping** — Traders wrap standard ERC-20 tokens (USDC, WETH) into iExec Confidential Tokens. Balances become cryptographically hidden on-chain.
+3. **Atomic Settlement** — A smart escrow contract on Arbitrum Sepolia atomically swaps confidential tokens. The settlement is on-chain — but **Arbiscan shows $0.00 and encrypted gibberish**.
 
-**Key features:**
-- **4-stage pipeline visualization** — Clone → AST Codemod → Compiler Loop → Ship PR
-- **Real-time log terminal** — Watch the background worker steps as they happen
-- **Live GitHub PR links** — Every successful migration ends with a clickable PR URL
-- **Dashboard analytics** — Track total PRs, active sweeps, and success rates via Supabase
+**Arbiscan sees nothing. The market doesn't move.**
+
+---
+
+## ✨ Key Features
+
+| Feature | Description |
+|---|---|
+| **AI Trade Negotiator** | ChainGPT Web3 LLM-powered chat for natural-language OTC negotiation |
+| **Live RWA Price Oracle** | Alpaca API for real-time T-Bill yields and stock prices — zero mocked data |
+| **Confidential Wrap/Unwrap** | ERC-20 ↔ cToken conversion via iExec Nox Protocol |
+| **Confidential Escrow** | Atomic swap contract holding both parties' cTokens |
+| **Split-Screen Verifier** | Side-by-side: Arbiscan (encrypted) vs. DarkDesk (real balances) |
 
 ---
 
 ## 🏗️ Architecture
 
-<p align="center">
-  <img src="docs/architecture.png" alt="ClawSearchDarkDesk Architecture" width="720" />
-</p>
+```
+┌─────────────────────────────────────────────────────┐
+│                    ClawSearch DarkDesk               │
+├─────────────┬──────────────┬────────────────────────┤
+│  AI Chat    │   Escrow     │   Market Data          │
+│  (ChainGPT) │  (cTokens)  │   (Alpaca API)         │
+├─────────────┴──────────────┴────────────────────────┤
+│              Next.js 16 + React 19                   │
+├─────────────────────────────────────────────────────┤
+│     wagmi v2 + viem + RainbowKit (Wallet)           │
+├─────────────────────────────────────────────────────┤
+│  iExec Nox Protocol (TEE Confidential Tokens)       │
+├─────────────────────────────────────────────────────┤
+│         Arbitrum Sepolia (Chain ID: 421614)          │
+└─────────────────────────────────────────────────────┘
+```
 
 ---
 
-## 🛠️ Tech Stack
-
-| Layer       | Technology                          |
-| ----------- | ----------------------------------- |
-| Framework   | Next.js 16.2.3 (App Router)         |
-| UI          | React 19.2.4                        |
-| Styling     | Tailwind CSS v4 + CSS custom props  |
-| Backend     | Supabase (sweep tracking + stats)   |
-| AST Engine  | ast-grep / Codemod toolkit + tsc    |
-| AI          | Claude Sonnet (edge case fixes) |
-| Language    | TypeScript 5                        |
-
----
-
-## 🚀 Getting Started
+## 🚀 Quick Start
 
 ### Prerequisites
 
-- **Node.js** ≥ 18
+- **Node.js** ≥ 20.9.0 (see `.nvmrc`)
 - **npm** ≥ 9
 
 ### Installation
 
 ```bash
-git clone https://github.com/edycutjong/clawsearchdarkdesk.git
-cd clawsearchdarkdesk
-npm install
-```
-
-### Environment Variables
-
-Create a `.env.local` file in the project root:
-
-```env
-# Supabase (optional — falls back to demo mode)
-NEXT_PUBLIC_SUPABASE_URL=https://your-project-id.supabase.co
-NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key-here
-
-# Codemod.com (for publishing/registry access)
-CODEMOD_API_KEY=your-codemod-api-key-here
-```
-
-> **Note:** The app runs fully in demo mode without any environment variables. The pipeline visualization and log terminal use simulated data for a reliable demo experience.
-
-### Run Development Server
-
-```bash
+git clone https://github.com/edycutjong/clawsearch-darkdesk.git
+cd clawsearch-darkdesk && npm install
+cp .env.example .env.local   # Add your API keys
 npm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) to see the landing page.
+
+### Environment Variables
+
+See `.env.example` for the full list. Key variables:
+
+| Variable | Source |
+|---|---|
+| `CHAINGPT_API_KEY` | Contact @vladnazarxyz on Telegram |
+| `ALPACA_API_KEY` / `ALPACA_API_SECRET` | [Alpaca Markets](https://app.alpaca.markets/) (free paper trading) |
+| `NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID` | [WalletConnect Cloud](https://cloud.walletconnect.com/) |
+| `NEXT_PUBLIC_ESCROW_CONTRACT_ADDRESS` | After deploying `DarkDeskEscrow.sol` to Sepolia |
+
+---
+
+## 🛠️ Tech Stack
+
+| Layer | Technology |
+|---|---|
+| **Frontend** | Next.js 16 (App Router), React 19 |
+| **Styling** | Tailwind CSS v4 |
+| **Wallet** | wagmi v2, viem, RainbowKit |
+| **AI** | ChainGPT Web3 LLM API |
+| **Market Data** | Alpaca Markets API (live, zero mocks) |
+| **Privacy** | iExec Nox Protocol, Confidential Tokens |
+| **Chain** | Arbitrum Sepolia (421614) |
+| **Contracts** | Solidity 0.8.20, Hardhat |
 
 ---
 
 ## 📁 Project Structure
 
 ```
-clawsearchdarkdesk/
+clawsearch-darkdesk/
 ├── src/
 │   ├── app/
-│   │   ├── api/              # API routes for sweep operations
-│   │   ├── dashboard/        # Sweep dashboard + detail views
-│   │   ├── globals.css       # Design tokens + animations
-│   │   ├── layout.tsx        # Root layout with metadata
-│   │   └── page.tsx          # Hero landing page
+│   │   ├── api/chat/        # ChainGPT proxy route
+│   │   ├── api/price/       # Alpaca market data route
+│   │   ├── trade/           # Trading desk page
+│   │   ├── globals.css      # Design system
+│   │   ├── layout.tsx       # Root layout
+│   │   └── page.tsx         # Landing page
 │   ├── components/
-│   │   ├── Header.tsx        # Navigation header
-│   │   ├── PipelineStatus.tsx # 4-stage progress visualization
-│   │   └── LogTerminal.tsx   # Real-time log output terminal
+│   │   ├── AIChat.tsx       # AI negotiation interface
+│   │   ├── DarkDeskEscrow.tsx # Escrow lifecycle panel
+│   │   ├── PriceOracle.tsx  # Live RWA price ticker
+│   │   ├── SplitScreenVerifier.tsx # Arbiscan vs DarkDesk
+│   │   └── Header.tsx       # Navigation
 │   └── lib/
-│       ├── supabase.ts       # Supabase client
-│       └── types.ts          # TypeScript interfaces
-├── docs/                     # Documentation assets
-│   ├── DEMO_SCRIPT.md        # 2-minute demo recording script
-│   ├── CASE_STUDY.md         # Full background and context
-│   └── screenshots/          # App screenshots
-├── codemod/                  # ClawSearchDarkDesk's core codemod plugin package
-├── package.json
-├── tsconfig.json
-└── next.config.ts
+│       ├── chaingpt.ts      # ChainGPT client
+│       ├── alpaca.ts        # Alpaca market data client
+│       └── wagmi-config.ts  # Wallet configuration
+├── contracts/
+│   └── DarkDeskEscrow.sol   # Atomic swap escrow
+├── feedback.md              # iExec tools feedback (required)
+└── package.json
 ```
 
 ---
 
 ## 🎨 Demo Flow
 
-1. **Landing Page** — Animated hero with live code preview cycling through migration steps
-2. **Dashboard** — Click "Launch Dashboard" → see total PRs and active sweeps
-3. **Start Migration** — Paste a GitHub URL → click "Start Migration"
-4. **Pipeline Viz** — Watch Clone → AST → Compiler Loop → PR stages light up in sequence
-5. **Log Terminal** — See real-time logs including `[AI] Compiler-Loop: Feeding error TS2322 to Claude Sonnet...`
-6. **PR Result** — Green "View Pull Request" button links to the opened PR
+1. **Landing Page** — Dark premium hero with feature cards
+2. **Connect Wallet** — RainbowKit on Arbitrum Sepolia
+3. **Wrap USDC → cUSDC** — Confidential Token wrapping
+4. **AI Negotiation** — ChainGPT proposes fair price with live Alpaca data
+5. **Create Escrow** — Atomic swap with countdown timer
+6. **Split-Screen Reveal** — Arbiscan ($0.00, encrypted) vs. DarkDesk (100,000 cUSDC @ 4.72% APY)
 
 ---
 
-## 🏆 Hackathon Context
+## 🎛️ Vibe Coding
 
-**Competition:** [Boring AI Hackathon 2026](https://dorahacks.io/hackathon/boring-ai)  
-**Track:** Case Studies / Production-grade Upgrade Recipes  
-**Core Thesis:** AI migrations are broken because LLMs hallucinate syntax. By constraining the AI to only fix compiler-verified errors (not generate code from scratch), ClawSearchDarkDesk achieves **zero false positives** — making it genuinely "boring" in the best possible way.
+This project was built with AI-assisted development throughout:
+- ChainGPT Smart Contract Generator for initial Solidity boilerplate
+- ChainGPT Auditor for pre-deployment security review
+- All AI-assisted steps documented with screenshots
 
-> 📄 **Read the Full Case Study:** [CASE_STUDY.md](./docs/CASE_STUDY.md) covers our AST + compiler-in-the-loop implementation in depth.
-> 🎬 **Demo Materials:** [DEMO_SCRIPT.md](./docs/DEMO_SCRIPT.md) contains the video flow & pitch.
+---
+
+## 🏆 Hackathon
+
+**Competition**: [iExec Vibe Coding Challenge](https://dorahacks.io/hackathon/vibe-coding-iexec)
+**Track**: Confidential RWA & DeFi
+**Prize Pool**: $1,500 USD (RLC tokens)
+
+### Confidential Token Utility
+
+| Utility | How |
+|---|---|
+| **Private Payments** | OTC settlement amounts hidden from public blockchain |
+| **Access Control** | Only trade participants with TEE-decrypted keys can view balances |
+| **In-App Currency** | cUSDC is the primary settlement token |
+| **Rewards** | Successful trades generate "DarkDesk Verified" receipt |
 
 ---
 
 ## 📄 License
 
 MIT © 2026 [Edy Cu](https://github.com/edycutjong)
+
+## Built for [iExec Vibe Coding Challenge](https://dorahacks.io/hackathon/vibe-coding-iexec)
+
+By: [@edycutjong](https://x.com/edycutjong) | Tags: @iEx_ec @Chain_GPT

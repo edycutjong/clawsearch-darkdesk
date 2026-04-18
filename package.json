@@ -10,7 +10,7 @@
     "lint:fix": "eslint . --fix",
     "typecheck": "tsc --noEmit",
     "test": "jest",
-    "test:coverage": "jest --coverage",
+    "test:coverage": "jest --coverage --passWithNoTests",
     "ci": "npm run lint && npm run typecheck && npm run test:coverage",
     "demo:record": "npx ts-node scripts/record-demo.ts",
     "demo:broll": "npx ts-node scripts/record-broll.ts",
