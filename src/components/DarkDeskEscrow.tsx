@@ -101,8 +101,8 @@ export function DarkDeskEscrow() {
           <div className="space-y-2">
             {PIPELINE_STEPS.map((step, i) => {
               const stepIndex = i + 1; // 1=created, 2=funded, 3=executed
-              const isComplete = currentIndex >= stepIndex;
-              const isActive = currentIndex === stepIndex;
+              const isComplete = currentIndex > stepIndex || (currentIndex === 3 && stepIndex === 3);
+              const isActive = currentIndex === stepIndex && currentIndex !== 3;
               const isPending = currentIndex < stepIndex;
 
               return (

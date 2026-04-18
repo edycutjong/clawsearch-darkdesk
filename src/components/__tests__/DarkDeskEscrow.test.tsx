@@ -37,5 +37,19 @@ describe('DarkDeskEscrow', () => {
     // Advance to 'executed' state
     act(() => { jest.advanceTimersByTime(2000); });
     expect(screen.getByText('Atomic Swap Executed')).toBeInTheDocument();
+
+    // Advance to idle state reset
+    act(() => { jest.advanceTimersByTime(8000); });
+    expect(screen.getByText('Awaiting AI Negotiation')).toBeInTheDocument();
+  });
+
+  it('prevents multiple simulates and checks active states', () => {
+    render(<DarkDeskEscrow />);
+    const button = screen.getByText('Simulate Escrow Flow');
+    fireEvent.click(button);
+    fireEvent.click(button); // Should return early from isSimulating check
+
+    const activeContainer = screen.getByText('Contract Deployed via iExec').parentElement;
+    expect(activeContainer).toHaveClass('border-cyan-500/30'); 
   });
 });
