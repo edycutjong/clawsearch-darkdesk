@@ -49,10 +49,35 @@ describe('alpaca lib', () => {
       expect(yieldResult).toBe(5.12);
     });
 
+    it('fetches TBill yield missing c returns fallback', async () => {
+      (global.fetch as jest.Mock).mockResolvedValue({
+        ok: true,
+        json: async () => ({ bar: {} }) // missing c
+      });
+
+      const yieldResult = await getTBillYield();
+      expect(yieldResult).toBe(4.72);
+    });
+
+    it('gets TBill yield not ok throws', async () => {
+      const spy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      (global.fetch as jest.Mock).mockResolvedValue({
+        ok: false
+      });
+
+      const yieldResult = await getTBillYield();
+      expect(yieldResult).toBe(4.72);
+      expect(spy).toHaveBeenCalled();
+      spy.mockRestore();
+    });
+
     it('handles TBill fetch error with fallback', async () => {
+      const spy = jest.spyOn(console, 'error').mockImplementation(() => {});
       (global.fetch as jest.Mock).mockRejectedValue(new Error('Network error'));
       const yieldResult = await getTBillYield();
       expect(yieldResult).toBe(4.72);
+      expect(spy).toHaveBeenCalled();
+      spy.mockRestore();
     });
 
     it('fetches stock price successfully', async () => {
@@ -65,10 +90,35 @@ describe('alpaca lib', () => {
       expect(price).toBe(200.50);
     });
 
+    it('fetches stock price missing c returns fallback', async () => {
+      (global.fetch as jest.Mock).mockResolvedValue({
+        ok: true,
+        json: async () => ({ bar: {} }) // missing c
+      });
+
+      const price = await getStockPrice('AAPL');
+      expect(price).toBe(100.00);
+    });
+
+    it('gets stock price not ok throws', async () => {
+      const spy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      (global.fetch as jest.Mock).mockResolvedValue({
+        ok: false
+      });
+
+      const price = await getStockPrice('AAPL');
+      expect(price).toBe(100.00);
+      expect(spy).toHaveBeenCalled();
+      spy.mockRestore();
+    });
+
     it('handles stock price fetch error with fallback', async () => {
+      const spy = jest.spyOn(console, 'error').mockImplementation(() => {});
       (global.fetch as jest.Mock).mockRejectedValue(new Error('Network error'));
       const price = await getStockPrice('AAPL');
       expect(price).toBe(100.00);
+      expect(spy).toHaveBeenCalled();
+      spy.mockRestore();
     });
   });
 });

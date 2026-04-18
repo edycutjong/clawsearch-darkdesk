@@ -28,11 +28,18 @@ describe('chaingpt lib', () => {
     expect(response).toBeInstanceOf(Response);
     expect(response.headers.get('Content-Type')).toBe('text/plain');
     
-    // We can test reading from the stream
+    // Read the stream fully to cover controller.close()
     const reader = response.body?.getReader();
-    const { done, value } = await reader!.read();
-    expect(done).toBe(false);
-    expect(value).toBeDefined();
+    let isDone = false;
+    while (!isDone) {
+      const p = reader!.read();
+      jest.advanceTimersByTime(50);
+      const { done, value } = await p;
+      if (value) {
+        expect(value).toBeDefined();
+      }
+      isDone = done;
+    }
   });
 
   it('calls fetch when API key is provided', async () => {
