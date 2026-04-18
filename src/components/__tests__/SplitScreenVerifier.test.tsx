@@ -27,8 +27,13 @@ describe('SplitScreenVerifier', () => {
     render(<SplitScreenVerifier />);
     
     act(() => {
-      // 6 times x 800ms = 4800 to trigger wrap-around (since length is 5)
-      jest.advanceTimersByTime(4800);
+      jest.advanceTimersByTime(800);
+    });
+    act(() => {
+      jest.advanceTimersByTime(800);
+    });
+    act(() => {
+      jest.advanceTimersByTime(3200);
     });
     
     jest.useRealTimers();

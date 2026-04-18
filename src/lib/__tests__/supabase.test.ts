@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { supabase, createServerClient, getSweepById, getAllSweeps, insertSweep, insertLog, updateSweepStatus, deleteLogsBySweepId } from '../supabase';
 import { createClient } from '@supabase/supabase-js';
 

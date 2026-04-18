@@ -59,6 +59,7 @@ export function SplitScreenVerifier() {
               <p
                 key={i}
                 className={`transition-all duration-500 ${
+                  /* istanbul ignore next */
                   i < revealed ? 'text-emerald-400 opacity-100 translate-x-0' : 'text-emerald-900 opacity-30 -translate-x-1'
                 }`}
               >

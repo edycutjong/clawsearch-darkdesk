@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="112" fill="#020617"/>
+  <!-- 3 Neon Claw Marks for ClawSearch (Green, Cyan, Purple) -->
+  <path d="M160 120 Q190 256 140 400" fill="none" stroke="#22c55e" stroke-width="36" stroke-linecap="round"/>
+  <path d="M256 100 Q286 256 256 412" fill="none" stroke="#06b6d4" stroke-width="48" stroke-linecap="round"/>
+  <path d="M352 120 Q322 256 372 400" fill="none" stroke="#a855f7" stroke-width="36" stroke-linecap="round"/>
+</svg>

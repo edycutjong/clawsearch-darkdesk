@@ -6,25 +6,17 @@ describe('chaingpt lib', () => {
   beforeEach(() => {
     jest.clearAllMocks();
     process.env = { ...originalEnv };
-    jest.useFakeTimers();
   });
 
   afterAll(() => {
     process.env = originalEnv;
-    jest.useRealTimers();
   });
 
   it('uses mock stream when no API key is provided', async () => {
     delete process.env.CHAINGPT_API_KEY;
     
-    const responsePromise = negotiateTrade('hello', { marketData: { tbillYield: 4.5, referencePrice: 100 } });
+    const response = await negotiateTrade('hello', { marketData: { tbillYield: 4.5, referencePrice: 100 } });
     
-    // Fast-forward timers to skip the 50ms delays inside start()
-    for(let i=0; i<100; i++) {
-        jest.advanceTimersByTime(50);
-    }
-    
-    const response = await responsePromise;
     expect(response).toBeInstanceOf(Response);
     expect(response.headers.get('Content-Type')).toBe('text/plain');
     
@@ -32,9 +24,7 @@ describe('chaingpt lib', () => {
     const reader = response.body?.getReader();
     let isDone = false;
     while (!isDone) {
-      const p = reader!.read();
-      jest.advanceTimersByTime(50);
-      const { done, value } = await p;
+      const { done, value } = await reader!.read();
       if (value) {
         expect(value).toBeDefined();
       }

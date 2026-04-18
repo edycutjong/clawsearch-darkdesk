@@ -13,7 +13,7 @@ describe('Home Page', () => {
     jest.spyOn(window.performance, 'now').mockImplementation(() => time);
     jest.spyOn(window, 'requestAnimationFrame').mockImplementation((cb: FrameRequestCallback) => {
       time += 16;
-      return setTimeout(() => cb(time), 16) as any as number;
+      return setTimeout(() => cb(time), 16) as unknown as number;
     });
   });
 

@@ -49,4 +49,35 @@ describe('PriceOracle', () => {
     expect(screen.getByText('SPY')).toBeInTheDocument();
     expect(screen.getByText('$512.45')).toBeInTheDocument();
   });
+
+  it('calls fetch when queryFn executes', async () => {
+    // Setup a mock implementation that doesn't crash on render
+    mockUseQuery.mockReturnValue({
+      data: null,
+      isLoading: true,
+      isError: false,
+    });
+    
+    render(<PriceOracle />);
+    
+    // Get the arguments passed to useQuery (the options object)
+    const queryOptions = mockUseQuery.mock.calls[mockUseQuery.mock.calls.length - 1][0];
+    
+    // Mock global.fetch
+    global.fetch = jest.fn().mockResolvedValue({
+      ok: true,
+      json: async () => ({ success: true, data: { tbill: {}, reference: {} } })
+    });
+    
+    const result = await queryOptions.queryFn();
+    expect(result.success).toBe(true);
+    expect(global.fetch).toHaveBeenCalledWith('/api/price');
+    
+    // Test the error path
+    global.fetch = jest.fn().mockResolvedValue({
+      ok: false,
+    });
+    
+    await expect(queryOptions.queryFn()).rejects.toThrow('Network response was not ok');
+  });
 });

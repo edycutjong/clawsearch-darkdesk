@@ -1,6 +1,7 @@
 import '@testing-library/jest-dom';
 import React from 'react';
 import { TextEncoder, TextDecoder } from 'util';
+import { ReadableStream } from 'node:stream/web';
 
 global.TextEncoder = TextEncoder;
 global.TextDecoder = TextDecoder as unknown as typeof global.TextDecoder;
@@ -20,23 +21,9 @@ if (typeof global.Response === 'undefined') {
     }
   } as unknown as typeof global.Response;
 }
+
 if (typeof global.ReadableStream === 'undefined') {
-  global.ReadableStream = class ReadableStream {
-    constructor(source: { start?: (controller: { enqueue: () => void; close: () => void; }) => void }) {
-      if (source?.start) {
-        source.start({
-          enqueue: () => {},
-          close: () => {}
-        });
-      }
-    }
-    getReader() {
-      return {
-        read: async () => ({ done: false, value: new TextEncoder().encode('test') }),
-        releaseLock: () => {}
-      };
-    }
-  } as unknown as typeof global.ReadableStream;
+  global.ReadableStream = ReadableStream as unknown as typeof global.ReadableStream;
 }
 
 

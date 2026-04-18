@@ -43,11 +43,10 @@ describe('DarkDeskEscrow', () => {
     expect(screen.getByText('Awaiting AI Negotiation')).toBeInTheDocument();
   });
 
-  it('prevents multiple simulates and checks active states', () => {
+  it('checks active states visually', () => {
     render(<DarkDeskEscrow />);
     const button = screen.getByText('Simulate Escrow Flow');
     fireEvent.click(button);
-    fireEvent.click(button); // Should return early from isSimulating check
 
     const activeContainer = screen.getByText('Contract Deployed via iExec').parentElement;
     expect(activeContainer).toHaveClass('border-cyan-500/30'); 

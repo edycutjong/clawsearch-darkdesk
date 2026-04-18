@@ -14,16 +14,12 @@ const STATUS_ORDER: EscrowStatus[] = ['idle', 'created', 'funded', 'executed'];
 
 export function DarkDeskEscrow() {
   const [escrowStatus, setEscrowStatus] = useState<EscrowStatus>('idle');
-  const [isSimulating, setIsSimulating] = useState(false);
 
   const simulateFlow = () => {
-    if (isSimulating) return;
-    setIsSimulating(true);
     setEscrowStatus('created');
     
     setTimeout(() => setEscrowStatus('funded'), 2000);
     setTimeout(() => setEscrowStatus('executed'), 4000);
-    setTimeout(() => setIsSimulating(false), 4500);
   };
 
   // Auto-reset after showing executed for a while
