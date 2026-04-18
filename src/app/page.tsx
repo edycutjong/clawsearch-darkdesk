@@ -119,7 +119,7 @@ export default function Home() {
           >
             <Link
               href="/trade"
-              className="cta-magnetic group relative rounded-xl bg-gradient-to-r from-cyan-600 to-cyan-500 text-white px-8 py-4 font-mono font-semibold flex items-center justify-center gap-3"
+              className="cta-magnetic group relative rounded-xl bg-linear-to-r from-cyan-600 to-cyan-500 text-white px-8 py-4 font-mono font-semibold flex items-center justify-center gap-3"
             >
               <Shield className="h-5 w-5" />
               Initialize Secure Terminal
