@@ -28,7 +28,7 @@ function SpotlightCard({ children, className = "" }: { children: React.ReactNode
   const ref = useRef<HTMLDivElement>(null);
   const handleMouseMove = (e: React.MouseEvent) => {
     const el = ref.current;
-    /* istanbul ignore next */
+    /* istanbul ignore if */
     if (!el) return;
     const rect = el.getBoundingClientRect();
     el.style.setProperty("--mouse-x", `${e.clientX - rect.left}px`);
