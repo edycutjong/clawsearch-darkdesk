@@ -3,7 +3,7 @@
 import { Header } from "@/components/Header";
 import Link from "next/link";
 import { Shield, Lock, Cpu, BarChart3, Layers, ArrowRight, Zap } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 
 function useCountUp(target: number, duration = 2000, delay = 0) {
   const [value, setValue] = useState(0);
@@ -25,16 +25,14 @@ function useCountUp(target: number, duration = 2000, delay = 0) {
 }
 
 function SpotlightCard({ children, className = "" }: { children: React.ReactNode; className?: string }) {
-  const ref = useRef<HTMLDivElement>(null);
-  const handleMouseMove = (e: React.MouseEvent) => {
-    /* istanbul ignore next */
-    if (!ref.current) return;
-    const rect = ref.current.getBoundingClientRect();
-    ref.current.style.setProperty("--mouse-x", `${e.clientX - rect.left}px`);
-    ref.current.style.setProperty("--mouse-y", `${e.clientY - rect.top}px`);
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const target = e.currentTarget;
+    const rect = target.getBoundingClientRect();
+    target.style.setProperty("--mouse-x", `${e.clientX - rect.left}px`);
+    target.style.setProperty("--mouse-y", `${e.clientY - rect.top}px`);
   };
   return (
-    <div ref={ref} onMouseMove={handleMouseMove} className={`spotlight-card ${className}`}>
+    <div onMouseMove={handleMouseMove} className={`spotlight-card ${className}`}>
       {children}
     </div>
   );
