@@ -137,23 +137,29 @@ async function main() {
   // Captures: DarkDeskEscrow component with gradient-border,
   // escrow state transitions, confidential token visualization
   await recordScene(browser, 'escrow-flow', `${BASE_URL}/trade`, async (page) => {
-    await page.waitForTimeout(3000);
+    await page.waitForTimeout(500);
 
-    // Focus on the escrow panel (center column)
-    const escrowPanel = page.locator('text=Confidential Escrow').first();
+    // Focus on the escrow panel
+    const escrowPanel = page.locator('text=Execution Block').first();
     if (await escrowPanel.count() > 0) {
       await escrowPanel.scrollIntoViewIfNeeded();
     }
-    await page.waitForTimeout(1500);
+    await page.waitForTimeout(1000);
 
-    // Try to interact with escrow buttons
-    const escrowButtons = page.locator('.lg\\:col-span-4 button');
-    const btnCount = await escrowButtons.count();
-    for (let i = 0; i < btnCount; i++) {
-      await escrowButtons.nth(i).hover();
-      await page.waitForTimeout(1200);
+    // Locate and click the 'Simulate Escrow Flow' button
+    const simulateBtn = page.locator('button:has-text("Simulate Escrow Flow")');
+    if (await simulateBtn.count() > 0) {
+      // Hover for a moment
+      await simulateBtn.hover();
+      await page.waitForTimeout(500);
+      // Click to trigger the 3-step pipeline animation
+      await simulateBtn.click();
+      
+      // Wait ample time for created -> funded -> executed timeline (4 seconds logic) 
+      await page.waitForTimeout(6000);
+    } else {
+      await page.waitForTimeout(3000);
     }
-    await page.waitForTimeout(2000);
   });
 
   // ─── Scene 6: Split-Screen Verifier ───────────────────────
@@ -188,4 +194,4 @@ main().catch((err) => {
   process.exit(1);
 });
 
-export {};
+export { };
