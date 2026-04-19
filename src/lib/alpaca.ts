@@ -13,7 +13,8 @@ export async function getTBillYield(): Promise<number> {
         'APCA-API-KEY-ID': process.env.ALPACA_API_KEY,
         'APCA-API-SECRET-KEY': process.env.ALPACA_API_SECRET,
       },
-      next: { revalidate: 60 } // Cache for 60 seconds
+      next: { revalidate: 60 }, // Cache for 60 seconds
+      signal: AbortSignal.timeout(1500) // Fail fast for snappy UI
     });
     
     if (!res.ok) throw new Error('Alpaca API error');
@@ -42,7 +43,8 @@ export async function getStockPrice(symbol: string): Promise<number> {
         'APCA-API-KEY-ID': process.env.ALPACA_API_KEY,
         'APCA-API-SECRET-KEY': process.env.ALPACA_API_SECRET,
       },
-      next: { revalidate: 60 } // Cache for 60 seconds
+      next: { revalidate: 60 }, // Cache for 60 seconds
+      signal: AbortSignal.timeout(1500) // Fail fast for snappy UI
     });
     
     if (!res.ok) throw new Error('Alpaca API error');

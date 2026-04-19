@@ -6,9 +6,11 @@ export async function POST(req: NextRequest) {
   try {
     const { message } = await req.json();
 
-    // Fetch the absolute real-time (or cached) market data
-    const tbillYield = await getTBillYield();
-    const referencePrice = await getStockPrice('AAPL');
+    // Fetch the absolute real-time (or cached) market data concurrently to halve network latency
+    const [tbillYield, referencePrice] = await Promise.all([
+      getTBillYield(),
+      getStockPrice('AAPL')
+    ]);
 
     const context = {
       marketData: {

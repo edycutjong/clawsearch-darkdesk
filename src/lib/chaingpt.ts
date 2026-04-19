@@ -13,11 +13,11 @@ export async function negotiateTrade(message: string, context: TradeContext): Pr
       async start(controller) {
         const text = `I see you want to proceed with OTC trading. Current Alpaca T-Bill yields are at ${context.marketData.tbillYield.toFixed(2)}%. Based on our DarkDesk parameters, I can offer an escrow execution at this rate. Would you like me to generate the escrow link for your counterparty?`;
         
-        // Simulating the typing effect of a stream
+        // Simulating the typing effect of a stream, but extremely fast
         const chunks = text.split(' ');
         for (const chunk of chunks) {
           controller.enqueue(new TextEncoder().encode(chunk + ' '));
-          await new Promise(r => setTimeout(r, 50));
+          await new Promise(r => setTimeout(r, 15));
         }
         controller.close();
       }
