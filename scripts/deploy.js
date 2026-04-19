@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-require-imports */
 const hre = require("hardhat");
 
 async function main() {
