@@ -18,7 +18,7 @@ export function Header() {
   const navItems = [
     { label: 'Terminal', href: '/', icon: Shield },
     { label: 'Dark Pool', href: '/trade', icon: LayoutDashboard },
-    { label: 'Docs', href: '#', icon: BookOpen },
+    { label: 'Docs', href: 'https://docs.iex.ec/', icon: BookOpen },
   ];
 
   return (
@@ -61,7 +61,7 @@ export function Header() {
 
         {/* GitHub CTA */}
         <a
-          href="https://github.com/edycutjong/clawsearchdarkdesk"
+          href="https://github.com/edycutjong/clawsearch-darkdesk"
           target="_blank"
           rel="noopener noreferrer"
           className="github-cta"

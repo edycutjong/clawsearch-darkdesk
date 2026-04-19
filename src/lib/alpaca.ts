@@ -1,4 +1,4 @@
-const ALPACA_BASE = process.env.ALPACA_BASE_URL || 'https://paper-api.alpaca.markets';
+const ALPACA_BASE = process.env.ALPACA_BASE_URL || 'https://data.alpaca.markets';
 
 export async function getTBillYield(): Promise<number> {
   // If no keys, return a mocked premium yield for the demo

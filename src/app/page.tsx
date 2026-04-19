@@ -124,7 +124,7 @@ export default function Home() {
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Link>
             <a
-              href="https://github.com/edycutjong/clawsearchdarkdesk"
+              href="https://github.com/edycutjong/clawsearch-darkdesk"
               target="_blank"
               rel="noopener noreferrer"
               className="github-cta rounded-xl px-8 py-4 font-mono font-medium"
