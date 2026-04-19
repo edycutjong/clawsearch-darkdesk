@@ -31,6 +31,7 @@ describe('/api/price', () => {
   });
 
   it('handles error gracefully', async () => {
+    const spy = jest.spyOn(console, 'error').mockImplementation(() => {});
     (getTBillYield as jest.Mock).mockRejectedValue(new Error('API failure'));
 
     const response = await GET();
@@ -39,5 +40,6 @@ describe('/api/price', () => {
     expect(response.status).toBe(500);
     expect(data.success).toBe(false);
     expect(data.error).toBe('Failed to fetch oracle data');
+    spy.mockRestore();
   });
 });

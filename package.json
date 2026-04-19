@@ -12,9 +12,7 @@
     "test": "jest",
     "test:coverage": "jest --coverage --passWithNoTests",
     "ci": "npm run lint && npm run typecheck && npm run test:coverage",
-    "demo:record": "npx ts-node scripts/record-demo.ts",
-    "demo:broll": "npx ts-node scripts/record-broll.ts",
-    "screenshots": "npx ts-node scripts/take-screenshots.ts"
+    "demo:broll": "npx ts-node scripts/record-broll.ts"
   },
   "dependencies": {
     "@icons-pack/react-simple-icons": "^13.11.1",

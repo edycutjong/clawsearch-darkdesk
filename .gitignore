@@ -46,3 +46,6 @@ next-env.d.ts
 /screenshots/
 /demo_assets/
 ClawSearchDarkDesk_lint.txt
+
+# assets
+docs/assets/*

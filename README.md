@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="./public/logo.png" alt="ClawSearch DarkDesk Logo" width="150" />
+  <img src="./public/icon.png" alt="ClawSearch DarkDesk Logo" width="150" />
   <h1>ClawSearch DarkDesk 🛡️</h1>
   <p><em>AI-Brokered OTC Dark Pool for Confidential RWA Trading.</em></p>
   

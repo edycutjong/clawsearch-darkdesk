@@ -46,6 +46,7 @@ describe('/api/chat', () => {
   });
 
   it('handles error gracefully', async () => {
+    const spy = jest.spyOn(console, 'error').mockImplementation(() => {});
     (getTBillYield as jest.Mock).mockRejectedValue(new Error('Network error'));
 
     const req = new NextRequest('http://localhost/api/chat', {
@@ -55,5 +56,6 @@ describe('/api/chat', () => {
 
     const response = await POST(req as unknown as NextRequest);
     expect(response.status).toBe(500);
+    spy.mockRestore();
   });
 });
