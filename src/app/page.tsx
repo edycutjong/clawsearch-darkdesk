@@ -217,7 +217,14 @@ export default function Home() {
       <footer className="section-divider border-t border-slate-800/50 py-8 text-center relative z-10">
         <p className="text-sm font-mono text-slate-500">
           Built for{" "}
-          <span className="text-cyan-500">DoraHacks</span>{" "}
+          <a
+            href="https://dorahacks.io/hackathon/vibe-coding-iexec/detail"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-cyan-500 hover:text-cyan-400 transition-colors"
+          >
+            DoraHacks
+          </a>{" "}
           iExec Vibe Coding Hackathon 2026.
         </p>
       </footer>

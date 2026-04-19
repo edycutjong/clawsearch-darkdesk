@@ -13,9 +13,22 @@
 ---
 
 ## 📸 See it in Action
-*(Insert a high-quality GIF here showing the core workflow of your app)*
-![DarkDesk Demo](./public/demo.gif)
 
+### 1. Landing & Features Overview
+<img width="800" height="500" alt="broll-landing-hero" src="https://github.com/user-attachments/assets/fbad7bcd-c5f1-40b1-b6ef-d986574952f6" />
+<img width="800" height="500" alt="broll-feature-cards" src="https://github.com/user-attachments/assets/9d4b7470-00e4-4355-8f49-fcc44d0a7861" />
+
+### 2. Live OTC Dark Pool Trading Desk
+<img width="800" height="500" alt="broll-trade-desk" src="https://github.com/user-attachments/assets/0887b38e-7825-4c56-bee7-e24fc5f91ae8" />
+
+### 3. AI-Brokered OTC Negotiation
+<img width="800" height="500" alt="broll-ai-negotiation" src="https://github.com/user-attachments/assets/e5db6a30-4d67-4238-9ca9-d2a8e688d241" />
+
+### 4. Split-Screen Verification
+<img width="800" height="500" alt="broll-split-verifier" src="https://github.com/user-attachments/assets/8db4267b-653d-4ded-8736-410f743f31a1" />
+
+### 5. Confidential TEE Escrow Pipeline
+<img width="800" height="500" alt="broll-escrow-flow" src="https://github.com/user-attachments/assets/cf66bba7-ab39-4490-9b77-94556f5152a3" />
 ## 💡 The Problem & Solution
 
 In today's world, when institutional players trade large blocks of tokenized Real World Assets (RWAs) — such as $5M of tokenized T-Bills — public blockchains broadcast every detail. MEV bots front-run, copy-traders pile on, and slippage costs 2–5% of trade value. In traditional finance, dark pools solve this. On-chain, there is no privacy layer for confidential OTC settlement.
