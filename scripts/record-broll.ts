@@ -64,8 +64,8 @@ async function main() {
   // Captures: mesh gradient, floating orbs, code rain, particle
   // effects, badge glow, headline shimmer, and count-up stats
   await recordScene(browser, 'landing-hero', BASE_URL, async (page) => {
-    // Watch the full entrance animation sequence
-    await page.waitForTimeout(6000);
+    // Watch the full entrance animation sequence, punchy
+    await page.waitForTimeout(4500);
   });
 
   // ─── Scene 2: Feature Cards Spotlight ──────────────────────
@@ -75,7 +75,7 @@ async function main() {
     // Scroll to feature grid
     const featureGrid = page.locator('.stagger-children');
     await featureGrid.scrollIntoViewIfNeeded();
-    await page.waitForTimeout(1500);
+    await page.waitForTimeout(1000);
 
     // Hover across each card to trigger spotlight + 3D tilt
     const cards = page.locator('.card-3d');
@@ -85,14 +85,14 @@ async function main() {
       const box = await card.boundingBox();
       if (box) {
         // Sweep mouse across card for spotlight + 3D effect
-        await page.mouse.move(box.x + 20, box.y + box.height / 2, { steps: 15 });
-        await page.waitForTimeout(400);
-        await page.mouse.move(box.x + box.width - 20, box.y + box.height / 2, { steps: 25 });
-        await page.waitForTimeout(800);
+        await page.mouse.move(box.x + 20, box.y + box.height / 2, { steps: 10 });
+        await page.waitForTimeout(200);
+        await page.mouse.move(box.x + box.width - 20, box.y + box.height / 2, { steps: 20 });
+        await page.waitForTimeout(500);
       }
     }
     await page.mouse.move(0, 0);
-    await page.waitForTimeout(1000);
+    await page.waitForTimeout(500);
   });
 
   // ─── Scene 3: Trade Desk Overview ──────────────────────────
@@ -100,36 +100,37 @@ async function main() {
   // panels sliding in, animated grid background, floating orbs
   await recordScene(browser, 'trade-desk', `${BASE_URL}/trade`, async (page) => {
     // Watch the staggered panel slide-in animations
-    await page.waitForTimeout(6000);
+    await page.waitForTimeout(4500);
   });
 
   // ─── Scene 4: AI Chat Negotiation ─────────────────────────
   // Captures: terminal scanlines, typing animation in AI Chat,
   // ChainGPT response streaming with purple accent
   await recordScene(browser, 'ai-negotiation', `${BASE_URL}/trade`, async (page) => {
-    // Wait for panels to load
-    await page.waitForTimeout(3000);
+    // Wait for panels to load briefly
+    await page.waitForTimeout(1000);
 
     // Type a trade negotiation message
     const chatInput = page.locator('input[placeholder], textarea[placeholder]').first();
     if (await chatInput.count() > 0) {
       await chatInput.click();
-      await page.waitForTimeout(500);
+      await page.waitForTimeout(300);
 
-      // Type character by character for cinematic effect
+      // Type character by character for cinematic effect, but fast
       const message = 'Buy 500 tokenized T-Bills at 4.85% yield';
       for (const char of message) {
         await chatInput.press(char === ' ' ? 'Space' : char);
-        await page.waitForTimeout(60 + Math.random() * 40);
+        await page.waitForTimeout(30 + Math.random() * 20);
       }
-      await page.waitForTimeout(800);
+      await page.waitForTimeout(400);
 
       // Submit the message
       await page.keyboard.press('Enter');
-      await page.waitForTimeout(5000);
+      // Wait for the simulated ChainGPT response stream to complete
+      await page.waitForTimeout(6000);
     } else {
       // Fallback: just capture the panel with existing content
-      await page.waitForTimeout(5000);
+      await page.waitForTimeout(4000);
     }
   });
 
@@ -154,11 +155,11 @@ async function main() {
       await page.waitForTimeout(500);
       // Click to trigger the 3-step pipeline animation
       await simulateBtn.click();
-      
-      // Wait ample time for created -> funded -> executed timeline (4 seconds logic) 
+
+      // Ensure we hit the 4000ms animation boundary and wait 2 seconds for visual rest (total 6s)
       await page.waitForTimeout(6000);
     } else {
-      await page.waitForTimeout(3000);
+      await page.waitForTimeout(2000);
     }
   });
 
@@ -166,14 +167,14 @@ async function main() {
   // Captures: Arbiscan (red/encrypted) vs DarkDesk (green/clear)
   // side-by-side comparison with scanline overlay
   await recordScene(browser, 'split-verifier', `${BASE_URL}/trade`, async (page) => {
-    await page.waitForTimeout(3000);
+    await page.waitForTimeout(1000);
 
     // Scroll to the Dark Pool Analytics panel (bottom-right)
     const analyticsPanel = page.locator('text=Dark Pool Analytics').first();
     if (await analyticsPanel.count() > 0) {
       await analyticsPanel.scrollIntoViewIfNeeded();
     }
-    await page.waitForTimeout(5000);
+    await page.waitForTimeout(3500);
   });
 
   await browser.close();
