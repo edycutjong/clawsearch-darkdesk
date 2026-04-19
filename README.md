@@ -30,6 +30,7 @@
 
 ### 5. Confidential TEE Escrow Pipeline
 <img width="800" height="500" alt="broll-escrow-flow" src="https://github.com/user-attachments/assets/cf66bba7-ab39-4490-9b77-94556f5152a3" />
+
 ## 💡 The Problem & Solution
 
 In today's world, when institutional players trade large blocks of tokenized Real World Assets (RWAs) — such as $5M of tokenized T-Bills — public blockchains broadcast every detail. MEV bots front-run, copy-traders pile on, and slippage costs 2–5% of trade value. In traditional finance, dark pools solve this. On-chain, there is no privacy layer for confidential OTC settlement.
