@@ -3,7 +3,7 @@
   <h1>ClawSearch DarkDesk 🛡️</h1>
   <p><em>AI-Brokered OTC Dark Pool for Confidential RWA Trading.</em></p>
   
-  [![Live Demo](https://img.shields.io/badge/Live-Demo-brightgreen.svg)](https://clawsearch-darkdesk.vercel.app)
+  [![Live Demo](https://img.shields.io/badge/Live-Demo-brightgreen.svg)](https://clawsearch-darkdesk.edycu.dev/)
   [![Pitch Video](https://img.shields.io/badge/Pitch-Video-red.svg)](#)
   [![Built on iExec Nox](https://img.shields.io/badge/iExec-Nox_Protocol-06b6d4.svg)](https://docs.iex.ec/)
   [![ChainGPT](https://img.shields.io/badge/AI-ChainGPT-a855f7.svg)](https://chaingpt.org/)

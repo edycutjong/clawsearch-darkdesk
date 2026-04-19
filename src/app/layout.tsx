@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   title: "ClawSearch DarkDesk — OTC Real World Assets",
   description:
     "Institutional dark pool for tokenized Real World Assets, featuring iExec Confidential Tokens and AI-brokered negotiations.",
-  metadataBase: new URL("https://clawsearch-darkdesk.vercel.app"),
+  metadataBase: new URL("https://clawsearch-darkdesk.edycu.dev"),
   openGraph: {
     title: "ClawSearch DarkDesk — OTC Real World Assets",
     description:
