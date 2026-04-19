@@ -11,9 +11,9 @@ describe('Not Found Page', () => {
     render(<NotFound />);
     
     expect(screen.getByText('404')).toBeInTheDocument();
-    expect(screen.getByText('Page Not Found')).toBeInTheDocument();
-    expect(screen.getByText(/Lost in the blockchain/i)).toBeInTheDocument();
-    expect(screen.getByText('Back to Base')).toBeInTheDocument();
+    expect(screen.getByText('> [MARKET_NOT_FOUND]')).toBeInTheDocument();
+    expect(screen.getByText(/hidden in the dark pool/i)).toBeInTheDocument();
+    expect(screen.getByText('RETRN TO TRADING DESK')).toBeInTheDocument();
     expect(screen.getByTestId('mock-header')).toBeInTheDocument();
   });
 });
