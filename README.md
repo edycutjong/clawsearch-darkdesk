@@ -3,6 +3,7 @@
   <h1>ClawSearch DarkDesk 🛡️</h1>
   <p><em>AI-Brokered OTC Dark Pool for Confidential RWA Trading.</em></p>
   
+  [![DoraHacks BUIDL](https://img.shields.io/badge/DoraHacks-BUIDL-orange.svg)](https://dorahacks.io/buidl/43232)
   [![Live Demo](https://img.shields.io/badge/Live-Demo-brightgreen.svg)](https://clawsearch-darkdesk.edycu.dev/)
   [![Pitch Video](https://img.shields.io/badge/Pitch-Video-red.svg)](https://youtu.be/2elHcUeJ_DM)
   [![Built on iExec Nox](https://img.shields.io/badge/iExec-Nox_Protocol-06b6d4.svg)](https://docs.iex.ec/)
@@ -100,6 +101,6 @@ We built the frontend using **Next.js 16** and **Tailwind CSS v4**. The Web3 int
 
 MIT © 2026 [Edy Cu](https://github.com/edycutjong)
 
-**Built for [iExec Vibe Coding Challenge](https://dorahacks.io/hackathon/vibe-coding-iexec)**
+**Built for [iExec Vibe Coding Challenge](https://dorahacks.io/hackathon/vibe-coding-iexec)** | **[View BUIDL](https://dorahacks.io/buidl/43232)**
 
 By: [@edycutjong](https://x.com/edycutjong) | Tags: @iEx_ec @Chain_GPT
