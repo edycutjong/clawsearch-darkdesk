@@ -17,6 +17,8 @@
   },
   "dependencies": {
     "@icons-pack/react-simple-icons": "^13.11.1",
+    "@iexec-nox/nox-confidential-contracts": "^0.1.0",
+    "@iexec-nox/nox-protocol-contracts": "^0.2.2",
     "@rainbow-me/rainbowkit": "^2.2.10",
     "@supabase/supabase-js": "^2.103.0",
     "@tanstack/react-query": "^5.99.0",
