@@ -2,11 +2,11 @@
   "_format": "hh-sol-cache-2",
   "files": {
     "/Users/edycu/Projects/Hackathon/ClawSearchDarkDesk/contracts/DarkDeskEscrow.sol": {
-      "lastModificationDate": 1775995733125,
-      "contentHash": "c247019ad71e341a8cdeaa2bf3ce9642",
+      "lastModificationDate": 1777594350186,
+      "contentHash": "ac8f336373c9698f3e65b1aabecd64e8",
       "sourceName": "contracts/DarkDeskEscrow.sol",
       "solcConfig": {
-        "version": "0.8.20",
+        "version": "0.8.28",
         "settings": {
           "evmVersion": "paris",
           "optimizer": {
@@ -31,21 +31,23 @@
       },
       "imports": [
         "@openzeppelin/contracts/access/Ownable.sol",
-        "@openzeppelin/contracts/token/ERC20/IERC20.sol"
+        "@openzeppelin/contracts/token/ERC20/IERC20.sol",
+        "@iexec-nox/nox-confidential-contracts/contracts/interfaces/IERC7984.sol",
+        "@iexec-nox/nox-protocol-contracts/contracts/sdk/Nox.sol"
       ],
       "versionPragmas": [
-        "^0.8.20"
+        "^0.8.28"
       ],
       "artifacts": [
         "DarkDeskEscrow"
       ]
     },
     "/Users/edycu/Projects/Hackathon/ClawSearchDarkDesk/node_modules/@openzeppelin/contracts/access/Ownable.sol": {
-      "lastModificationDate": 1776563775825,
+      "lastModificationDate": 1777594251226,
       "contentHash": "d3c790edc9ccf808a17c5a6cd13614fd",
       "sourceName": "@openzeppelin/contracts/access/Ownable.sol",
       "solcConfig": {
-        "version": "0.8.20",
+        "version": "0.8.28",
         "settings": {
           "evmVersion": "paris",
           "optimizer": {
@@ -79,11 +81,11 @@
       ]
     },
     "/Users/edycu/Projects/Hackathon/ClawSearchDarkDesk/node_modules/@openzeppelin/contracts/token/ERC20/IERC20.sol": {
-      "lastModificationDate": 1776563775706,
+      "lastModificationDate": 1777594251146,
       "contentHash": "9261adf6457863de3e9892f51317ec89",
       "sourceName": "@openzeppelin/contracts/token/ERC20/IERC20.sol",
       "solcConfig": {
-        "version": "0.8.20",
+        "version": "0.8.28",
         "settings": {
           "evmVersion": "paris",
           "optimizer": {
@@ -115,11 +117,11 @@
       ]
     },
     "/Users/edycu/Projects/Hackathon/ClawSearchDarkDesk/node_modules/@openzeppelin/contracts/utils/Context.sol": {
-      "lastModificationDate": 1776563775239,
+      "lastModificationDate": 1777594250865,
       "contentHash": "67bfbc07588eb8683b3fd8f6f909563e",
       "sourceName": "@openzeppelin/contracts/utils/Context.sol",
       "solcConfig": {
-        "version": "0.8.20",
+        "version": "0.8.28",
         "settings": {
           "evmVersion": "paris",
           "optimizer": {
@@ -148,6 +150,304 @@
       ],
       "artifacts": [
         "Context"
+      ]
+    },
+    "/Users/edycu/Projects/Hackathon/ClawSearchDarkDesk/node_modules/@iexec-nox/nox-protocol-contracts/contracts/sdk/Nox.sol": {
+      "lastModificationDate": 1777594246612,
+      "contentHash": "c91098ceae462608b2d41b0fe7e3321a",
+      "sourceName": "@iexec-nox/nox-protocol-contracts/contracts/sdk/Nox.sol",
+      "solcConfig": {
+        "version": "0.8.28",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../shared/HandleUtils.sol",
+        "../shared/TypeUtils.sol",
+        "../interfaces/INoxCompute.sol",
+        "encrypted-types/EncryptedTypes.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.27"
+      ],
+      "artifacts": [
+        "Nox"
+      ]
+    },
+    "/Users/edycu/Projects/Hackathon/ClawSearchDarkDesk/node_modules/@iexec-nox/nox-confidential-contracts/contracts/interfaces/IERC7984.sol": {
+      "lastModificationDate": 1777594246149,
+      "contentHash": "ce611c3dc65323d50859b5afd497f72d",
+      "sourceName": "@iexec-nox/nox-confidential-contracts/contracts/interfaces/IERC7984.sol",
+      "solcConfig": {
+        "version": "0.8.28",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@iexec-nox/nox-protocol-contracts/contracts/sdk/Nox.sol",
+        "@openzeppelin/contracts/interfaces/IERC165.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.28"
+      ],
+      "artifacts": [
+        "IERC7984"
+      ]
+    },
+    "/Users/edycu/Projects/Hackathon/ClawSearchDarkDesk/node_modules/@iexec-nox/nox-protocol-contracts/contracts/shared/TypeUtils.sol": {
+      "lastModificationDate": 1777594246746,
+      "contentHash": "ab443e1567e2279654bf59693bf27d40",
+      "sourceName": "@iexec-nox/nox-protocol-contracts/contracts/shared/TypeUtils.sol",
+      "solcConfig": {
+        "version": "0.8.28",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.27"
+      ],
+      "artifacts": [
+        "TypeUtils"
+      ]
+    },
+    "/Users/edycu/Projects/Hackathon/ClawSearchDarkDesk/node_modules/encrypted-types/EncryptedTypes.sol": {
+      "lastModificationDate": 1777594245150,
+      "contentHash": "521a624fad71cd29fc4b7c443b41bb86",
+      "sourceName": "encrypted-types/EncryptedTypes.sol",
+      "solcConfig": {
+        "version": "0.8.28",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.24"
+      ],
+      "artifacts": []
+    },
+    "/Users/edycu/Projects/Hackathon/ClawSearchDarkDesk/node_modules/@iexec-nox/nox-protocol-contracts/contracts/shared/HandleUtils.sol": {
+      "lastModificationDate": 1777594246470,
+      "contentHash": "aa90906093376aeca1efd22df33ee98e",
+      "sourceName": "@iexec-nox/nox-protocol-contracts/contracts/shared/HandleUtils.sol",
+      "solcConfig": {
+        "version": "0.8.28",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./TypeUtils.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.27"
+      ],
+      "artifacts": [
+        "HandleUtils"
+      ]
+    },
+    "/Users/edycu/Projects/Hackathon/ClawSearchDarkDesk/node_modules/@iexec-nox/nox-protocol-contracts/contracts/interfaces/INoxCompute.sol": {
+      "lastModificationDate": 1777594246505,
+      "contentHash": "fd33c93bfc5356e926426aef28c7c072",
+      "sourceName": "@iexec-nox/nox-protocol-contracts/contracts/interfaces/INoxCompute.sol",
+      "solcConfig": {
+        "version": "0.8.28",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../shared/TypeUtils.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.27"
+      ],
+      "artifacts": [
+        "INoxCompute"
+      ]
+    },
+    "/Users/edycu/Projects/Hackathon/ClawSearchDarkDesk/node_modules/@openzeppelin/contracts/interfaces/IERC165.sol": {
+      "lastModificationDate": 1777594251141,
+      "contentHash": "947853028399b7de34bcc3704ee06e99",
+      "sourceName": "@openzeppelin/contracts/interfaces/IERC165.sol",
+      "solcConfig": {
+        "version": "0.8.28",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../utils/introspection/IERC165.sol"
+      ],
+      "versionPragmas": [
+        ">=0.4.16"
+      ],
+      "artifacts": []
+    },
+    "/Users/edycu/Projects/Hackathon/ClawSearchDarkDesk/node_modules/@openzeppelin/contracts/utils/introspection/IERC165.sol": {
+      "lastModificationDate": 1777594251142,
+      "contentHash": "7074c93b1ea0a122063f26ddd1db1032",
+      "sourceName": "@openzeppelin/contracts/utils/introspection/IERC165.sol",
+      "solcConfig": {
+        "version": "0.8.28",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.4.16"
+      ],
+      "artifacts": [
+        "IERC165"
       ]
     }
   }
