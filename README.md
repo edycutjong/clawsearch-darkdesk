@@ -7,6 +7,7 @@
   [![Live Demo](https://img.shields.io/badge/Live-Demo-brightgreen.svg)](https://clawsearch-darkdesk.edycu.dev/)
   [![Pitch Video](https://img.shields.io/badge/Pitch-Video-red.svg)](https://youtu.be/2elHcUeJ_DM)
   [![Built on iExec Nox](https://img.shields.io/badge/iExec-Nox_Protocol-06b6d4.svg)](https://docs.iex.ec/)
+  [![ERC-7984](https://img.shields.io/badge/ERC--7984-Confidential_Token_(TEE)-06b6d4.svg)](https://eips.ethereum.org/EIPS/eip-7984)
   [![ChainGPT](https://img.shields.io/badge/AI-ChainGPT-a855f7.svg)](https://chaingpt.org/)
   [![Arbitrum Sepolia](https://img.shields.io/badge/Chain-Arbitrum_Sepolia-2d374b.svg)](https://sepolia.arbiscan.io/)
 </div>
@@ -41,19 +42,24 @@ In today's world, when institutional players trade large blocks of tokenized Rea
 **Key Features:**
 - 🤖 **AI Trade Negotiator:** ChainGPT Web3 LLM-powered chat for natural-language OTC negotiation.
 - 📈 **Live RWA Price Oracle:** Alpaca API for real-time T-Bill yields and stock prices — zero mocked data.
-- 🔒 **Confidential Wrap/Unwrap:** ERC-20 ↔ cToken conversion via iExec Nox Protocol.
+- 🔒 **Confidential Wrap/Unwrap:** ERC-20 ↔ cToken conversion via iExec Nox Protocol (ERC-7984 TEE standard).
 - 🤝 **Confidential Escrow:** Atomic swap contract holding both parties' cTokens.
 - 🔍 **Split-Screen Verifier:** Side-by-side: Arbiscan (encrypted) vs. DarkDesk (real balances).
 
 ## 🏗️ Architecture & Tech Stack
 
-We built the frontend using **Next.js 16** and **Tailwind CSS v4**. The Web3 integration uses **wagmi v2** and **viem** connected to **Arbitrum Sepolia**. We integrated the **ChainGPT API** to power the AI negotiator and the **Alpaca Markets API** for live off-chain oracle data. Our smart contracts are built with **Solidity** using the **iExec Nox Protocol** for TEE Confidential Tokens.
+We built the frontend using **Next.js 16** and **Tailwind CSS v4**. The Web3 integration uses **wagmi v2** and **viem** connected to **Arbitrum Sepolia**. We integrated the **ChainGPT API** to power the AI negotiator and the **Alpaca Markets API** for live off-chain oracle data. Our smart contracts are built with **Solidity 0.8.28** using the **iExec Nox Protocol ERC-7984 (TEE)** implementation for Confidential Tokens:
+
+| Package | Version | Purpose |
+|---|---|---|
+| `@iexec-nox/nox-confidential-contracts` | 0.1.0 | ERC-7984 `IERC7984` interface & `ERC7984Base` |
+| `@iexec-nox/nox-protocol-contracts` | 0.2.2 | `euint256` encrypted types & Nox SDK |
 
 ![ClawSearch DarkDesk Architecture](./docs/architecture.png)
 
 ## 🏆 Sponsor Tracks Targeted
 
-* **[iExec]**: We used the Nox Protocol (TEE Confidential Tokens) to hide OTC settlement amounts and balances. The confidential wrapper implementation can be found in `contracts/DarkDeskEscrow.sol`.
+* **[iExec]**: We use the **Nox Protocol ERC-7984 (TEE)** implementation — not OZ/Zama FHE — for Confidential Tokens that hide OTC settlement amounts and balances. Imports `IERC7984` and `euint256` directly from `@iexec-nox/*` packages. See `contracts/DarkDeskEscrow.sol`.
 * **[ChainGPT]**: We used the ChainGPT Web3 LLM API to build the AI Negotiator that brokers the trade. The implementation can be found in `src/lib/chaingpt.ts` and `src/app/api/chat/route.ts`.
 
 ## 🚀 Run it Locally (For Judges)
@@ -82,7 +88,7 @@ We built the frontend using **Next.js 16** and **Tailwind CSS v4**. The Web3 int
 ```text
 🏆 clawsearch-darkdesk/
 │
-├── 📂 contracts/             # Solidity Smart Contracts (iExec Nox Escrow)
+├── 📂 contracts/             # Solidity 0.8.28 — ERC-7984 Nox TEE Escrow
 ├── 📂 docs/                  # Architecture diagrams and pitch assets
 ├── 📂 public/                # Logos and app demonstration GIFs
 ├── 📂 src/
